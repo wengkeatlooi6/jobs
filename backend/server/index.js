@@ -4,10 +4,12 @@ const cors = require("cors");
 const db = require("./db");
 const app = express();
 const { body, validationResult } = require("express-validator");    // npm install Express-Validator
+const xmlparser = require('express-xml-bodyparser');                // npm install express-xml-bodyparser
 
 // Middleware
 app.use(cors());
 app.use(express.json());
+app.use(xmlparser());
 
 app.listen(5000, () => {
     console.log(`server has started on port: 5000`);
@@ -214,3 +216,78 @@ app.post("/jobs",
             });
         }
     });
+
+// GET /jobs/indeed.xml: Retrieves all the active jobs without pagination in XML format that aligns with Indeed XML Feed reference you can ignore the <url> field or leave it blank.
+app.get('/jobs/indeed.xml', async (req, res) => {
+    try {
+        if (req.accepts('xml')) {
+            // SQL Query - Fetch Active Jobs with Pagination
+            const query = {
+                text: `
+                SELECT * FROM Job
+                WHERE ExpiryDate > NOW()
+                ORDER BY JobID
+            `
+            }
+
+            // Execute Query
+            const { rows } = await db.query(query);
+
+            // Error Handling 1 - 404 Not Found - When No Active Jobs Found
+            if (rows.length === 0) {
+                return res.status(404).json({
+                    result: null,
+                    meta: null,
+                    errors: {
+                        code: 404,
+                        name: "Not Found",
+                        message: "No Active Jobs.",
+                        details: {
+                            path: "/jobs/indeed.xml",
+                            timestamp: new Date().toISOString
+                        }
+                    }
+                });
+            }
+
+            const xmlResponse = `<?xml version="1.0" encoding="utf-8"?><source><publisher>My System</publisher><publisherurl>http://www.mysystem.com</publisherurl><jobs>${rows.map(job => `<job><title>${job.Title}</title><date>${job.DatePosted}</date><referencenumber>${job.JobID}</referencenumber><requisitionid>${job.RequisitionID}</requisitionid><url>${job.URL}</url><company>${job.EmployerName}</company><sourcename>${job.EmployerHeadquarter}</sourcename><city>${job.City}</city><state>${job.State}</state><country>${job.Country}</country><postalcode>${job.PostalCode}</postalcode><streetaddress>${job.StreetAddress}</streetaddress><email>${job.EmployerEmail}</email><description>${job.Description}</description><salary>${job.Salary}</salary><education>${job.Education}</education><jobtype>${job.JobType}</jobtype><category>${job.Category}</category><experience>${job.Experience}</experience><expirationdate>${job.ExpiryDate}</expirationdate><remotetype>${job.RemoteType}</remotetype></job>`).join('')}</jobs></source>`;
+
+            // Set Content-Type header to indicate XML response
+            res.set('Content-Type', 'application/xml');
+
+            // Send XML response
+            res.status(200).send(xmlResponse);
+        } else {
+            // Error Handling 2 - 400 Bad Request - When No Accept "xml" or "*" Specified
+            res.status(400).json({
+                result: null,
+                meta: null,
+                errors: {
+                    code: 400,
+                    name: "Bad Request",
+                    message: "Missing Accept Headers.",
+                    details: {
+                        path: "/jobs/indeed.xml",
+                        timestamp: new Date().toISOString
+                    }
+                }
+            });
+        }
+    } catch (err) {
+        console.error(err);
+        // Default Error Handling - 500 Internal Server Error
+        res.status(500).json({
+            result: null,
+            meta: null,
+            errors: {
+                code: 500,
+                name: "Internal Server Error",
+                message: "There is an error on the downstream server, please retry again later.",
+                details: {
+                    path: "/jobs/indeed.xml",
+                    timestamp: new Date().toISOString
+                }
+            }
+        });
+    }
+});
