@@ -20,7 +20,7 @@ app.get("/", (req, res) => {
 });
 
 
-// GET /jobs: Retrieves all the active (none-expired) jobs with pagination
+// GET /jobs: Retrieves all the active (none-expired) jobs with pagination.
 app.get('/jobs', async (req, res) => {
     try {
         // Pagination Parameters
@@ -291,3 +291,91 @@ app.get('/jobs/indeed.xml', async (req, res) => {
         });
     }
 });
+
+// POST /jobs/indeed-application: Job seeker to apply from Indeed Feed and Update the Job Status.
+app.post("/jobs/indeed-application",
+    [
+        [
+            body("jobUrl").notEmpty(),
+            body("jobId").notEmpty(),
+            body("jobTitle").notEmpty(),
+            body("jobCompanyName").notEmpty(),
+            body("jobLocation").notEmpty(),
+            body("jobMeta").notEmpty(),
+            body("apiToken").notEmpty(),
+            body("postUrl").notEmpty(),
+            body("phone").notEmpty(),
+            body("coverletter").notEmpty(),
+            body("resume").notEmpty(),
+            body("name").notEmpty(),
+            body("questions").notEmpty(),
+            body("email").notEmpty(),
+            body("locale").notEmpty(),
+            body("advNum").notEmpty(),
+        ],
+    ],
+    async (req, res) => {
+        try {
+            // Error Handling 1 - 400 Bad Request - When Mandatory Fields Missing
+            const errors = validationResult(req);
+            if (!errors.isEmpty()) {
+                return res.status(400).json({
+                    result: null,
+                    meta: null,
+                    errors: {
+                        code: 400,
+                        name: "Bad Request",
+                        message: "Missing Mandatory Fields.",
+                        details: {
+                            path: "/jobs/indeed-application",
+                            timestamp: new Date().toISOString
+                        }
+                    }
+                });
+            }
+
+            // Extract job data from request body
+            const { jobUrl, jobId, jobTitle, jobCompanyName, jobLocation, jobMeta, apiToken, postUrl, phone, coverletter, resume, name, questions, email, locale, advNum } = req.body;
+
+            // SQL Query - Insert Job into Database
+            const query = {
+                text: `
+                INSERT INTO Job (EmployerID, RequisitionID, Title, Description, City, State, Country, PostalCode, StreetAddress, Salary, Education, JobType, Experience, DatePosted, ExpiryDate, RemoteType, URL)
+                VALUES ($1, $2, $3, $4, $5, $6, $7, $8, $9, $10, $11, $12, $13, $14, $15, $16, $17)
+                RETURNING Title, ExpiryDate
+            `,
+                values: [EmployerID, RequisitionID, Title, Description, City, State, Country, PostalCode, StreetAddress, Salary, Education, JobType, Experience, todayDate, expiryDate, RemoteType, URL]
+            }
+
+            // Execute Query
+            const { rows } = await db.query(query.text, query.values);
+
+            res.status(201).json({
+                result: {
+                    message: `${rows.Title} has been created`,
+                    expiryDate: rows.ExpiryDate
+                },
+                meta: {
+                    code: 201,
+                    name: "Created",
+                },
+                errors: null
+            });
+        } catch (err) {
+            console.error(err);
+            // Default Error Handling - 500 Internal Server Error
+            res.status(500).json({
+                result: null,
+                meta: null,
+                errors: {
+                    code: 500,
+                    name: "Internal Server Error",
+                    message: "There is an error on the downstream server, please retry again later.",
+                    details: {
+                        path: "/jobs/indeed-application",
+                        timestamp: new Date().toISOString
+                    }
+                }
+            });
+        }
+    });
