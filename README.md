@@ -70,3 +70,10 @@ You may use the test runner of choice, hint: Vitest is easy to setup.
 # Proposed Solution
 ## Part 1: Jobs Database Design
 ![alt text](https://github.com/wengkeatlooi6/jobs/blob/main/ERD.png?raw=true)
+
+# Part 2 & 3: Jobs API Integration Flow
+#### Flow Diagram
+![alt text](https://github.com/wengkeatlooi6/jobs/blob/main/FlowDiagram.png?raw=true)
+
+#### Documentation (Swagger)
+http://localhost:5000/api-docs/ (Local Host!)
