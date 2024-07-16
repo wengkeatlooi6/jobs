@@ -1,0 +1,356 @@
+{
+	"info": {
+		"_postman_id": "c3a8449c-e94c-4bd3-9776-303825b3bac0",
+		"name": "Jobs",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "11816857"
+	},
+	"item": [
+		{
+			"name": "Jobs",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/jobs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "New Request",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/jobs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "1141"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"475-LuUN8PMKxbD4w+r2NqsbIQ4eQyQ\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 16 Jul 2024 03:42:05 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": [\n        {\n            \"jobid\": 2,\n            \"companyregistrationno\": \"TNB1234\",\n            \"requisitionid\": \"ABC2\",\n            \"title\": \"Business Admin\",\n            \"description\": \"To assist on day to day operation\",\n            \"city\": \"Pudu\",\n            \"state\": \"Kuala Lumpur\",\n            \"country\": \"Malaysia\",\n            \"postalcode\": 53200,\n            \"streetaddress\": \"1, Jalan Pudu\",\n            \"salary\": \"4000 - 5000\",\n            \"education\": \"Bachelors\",\n            \"jobtype\": \"full-time\",\n            \"experience\": \"1 - 2 years\",\n            \"dateposted\": \"2024-06-30T16:00:00.000Z\",\n            \"expirydate\": \"2024-07-29T16:00:00.000Z\",\n            \"remotetype\": null,\n            \"url\": \"https://www.tnb.com/career/businessadmin\"\n        },\n        {\n            \"jobid\": 3,\n            \"companyregistrationno\": \"TNB1234\",\n            \"requisitionid\": \"ABC3\",\n            \"title\": \"Operation Analyst\",\n            \"description\": \"Monitor and cascade to respective team for operational tasks\",\n            \"city\": \"Pudu\",\n            \"state\": \"Kuala Lumpur\",\n            \"country\": \"Malaysia\",\n            \"postalcode\": 53200,\n            \"streetaddress\": \"1, Jalan Pudu\",\n            \"salary\": \"4000 - 5000\",\n            \"education\": \"Bachelors\",\n            \"jobtype\": \"full-time\",\n            \"experience\": \"1 - 2 years\",\n            \"dateposted\": \"2024-06-30T16:00:00.000Z\",\n            \"expirydate\": \"2024-07-29T16:00:00.000Z\",\n            \"remotetype\": null,\n            \"url\": \"https://www.tnb.com/career/operationanalyst\"\n        }\n    ],\n    \"meta\": {\n        \"code\": 200,\n        \"name\": \"Success\",\n        \"page\": 1,\n        \"pageSize\": 10,\n        \"totalItems\": 2,\n        \"totalPages\": 1\n    },\n    \"errors\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Indeed Job Feed",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "http://localhost:5000/jobs/indeed.xml",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"jobs",
+						"indeed.xml"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Jobs Copy",
+					"originalRequest": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:5000/jobs/indeed.xml",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"jobs",
+								"indeed.xml"
+							]
+						}
+					},
+					"status": "OK",
+					"code": 200,
+					"_postman_previewlanguage": "xml",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/xml; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "9650"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"25b2-sPz75LMm0hHo7Qyco9V+fbfV4Bc\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 16 Jul 2024 04:03:36 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "<?xml version=\"1.0\" encoding=\"utf-8\"?>\n<source>\n    <publisher>My System</publisher>\n    <publisherurl>http://www.mysystem.com</publisherurl>\n    <jobs>\n        <job>\n            <title>\n                <![CDATA[Business Admin]]>\n            </title>\n            <date>\n                <![CDATA[Mon Jul 01 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </date>\n            <referencenumber>\n                <![CDATA[2]]>\n            </referencenumber>\n            <requisitionid>\n                <![CDATA[ABC2]]>\n            </requisitionid>\n            <url>\n                <![CDATA[https://www.tnb.com/career/businessadmin]]>\n            </url>\n            <company>\n                <![CDATA[TNB]]>\n            </company>\n            <sourcename>\n                <![CDATA[Kuala Lumpur]]>\n            </sourcename>\n            <city>\n                <![CDATA[Pudu]]>\n            </city>\n            <state>\n                <![CDATA[Kuala Lumpur]]>\n            </state>\n            <country>\n                <![CDATA[Malaysia]]>\n            </country>\n            <postalcode>\n                <![CDATA[53200]]>\n            </postalcode>\n            <streetaddress>\n                <![CDATA[1, Jalan Pudu]]>\n            </streetaddress>\n            <email>\n                <![CDATA[hr@tnb.com]]>\n            </email>\n            <description>\n                <![CDATA[To assist on day to day operation]]>\n            </description>\n            <salary>\n                <![CDATA[4000 - 5000]]>\n            </salary>\n            <education>\n                <![CDATA[Bachelors]]>\n            </education>\n            <jobtype>\n                <![CDATA[full-time]]>\n            </jobtype>\n            <category>\n                <![CDATA[Business, Administrator]]>\n            </category>\n            <experience>\n                <![CDATA[1 - 2 years]]>\n            </experience>\n            <expirationdate>\n                <![CDATA[Tue Jul 30 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </expirationdate>\n            <remotetype>\n                <![CDATA[null]]>\n            </remotetype>\n        </job>\n        <job>\n            <title>\n                <![CDATA[Operation Analyst]]>\n            </title>\n            <date>\n                <![CDATA[Mon Jul 01 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </date>\n            <referencenumber>\n                <![CDATA[3]]>\n            </referencenumber>\n            <requisitionid>\n                <![CDATA[ABC3]]>\n            </requisitionid>\n            <url>\n                <![CDATA[https://www.tnb.com/career/operationanalyst]]>\n            </url>\n            <company>\n                <![CDATA[TNB]]>\n            </company>\n            <sourcename>\n                <![CDATA[Kuala Lumpur]]>\n            </sourcename>\n            <city>\n                <![CDATA[Pudu]]>\n            </city>\n            <state>\n                <![CDATA[Kuala Lumpur]]>\n            </state>\n            <country>\n                <![CDATA[Malaysia]]>\n            </country>\n            <postalcode>\n                <![CDATA[53200]]>\n            </postalcode>\n            <streetaddress>\n                <![CDATA[1, Jalan Pudu]]>\n            </streetaddress>\n            <email>\n                <![CDATA[hr@tnb.com]]>\n            </email>\n            <description>\n                <![CDATA[Monitor and cascade to respective team for operational tasks]]>\n            </description>\n            <salary>\n                <![CDATA[4000 - 5000]]>\n            </salary>\n            <education>\n                <![CDATA[Bachelors]]>\n            </education>\n            <jobtype>\n                <![CDATA[full-time]]>\n            </jobtype>\n            <category>\n                <![CDATA[null]]>\n            </category>\n            <experience>\n                <![CDATA[1 - 2 years]]>\n            </experience>\n            <expirationdate>\n                <![CDATA[Tue Jul 30 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </expirationdate>\n            <remotetype>\n                <![CDATA[null]]>\n            </remotetype>\n        </job>\n        <job>\n            <title>\n                <![CDATA[Marketing Manager]]>\n            </title>\n            <date>\n                <![CDATA[Tue Jul 16 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </date>\n            <referencenumber>\n                <![CDATA[4]]>\n            </referencenumber>\n            <requisitionid>\n                <![CDATA[ABCD123]]>\n            </requisitionid>\n            <url>\n                <![CDATA[https://www.simdarby.com/career/marketingmanager]]>\n            </url>\n            <company>\n                <![CDATA[Sime Darby]]>\n            </company>\n            <sourcename>\n                <![CDATA[Selangor]]>\n            </sourcename>\n            <city>\n                <![CDATA[Ara Damansara]]>\n            </city>\n            <state>\n                <![CDATA[Kuala Lumpur]]>\n            </state>\n            <country>\n                <![CDATA[Malaysia]]>\n            </country>\n            <postalcode>\n                <![CDATA[53200]]>\n            </postalcode>\n            <streetaddress>\n                <![CDATA[1-2, Jalan 123]]>\n            </streetaddress>\n            <email>\n                <![CDATA[hr@simedarby.com]]>\n            </email>\n            <description>\n                <![CDATA[Manage Marketing Team]]>\n            </description>\n            <salary>\n                <![CDATA[10K - 12K]]>\n            </salary>\n            <education>\n                <![CDATA[Master]]>\n            </education>\n            <jobtype>\n                <![CDATA[full-time]]>\n            </jobtype>\n            <category>\n                <![CDATA[null]]>\n            </category>\n            <experience>\n                <![CDATA[5 - 10 years]]>\n            </experience>\n            <expirationdate>\n                <![CDATA[Thu Aug 15 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </expirationdate>\n            <remotetype>\n                <![CDATA[hybrid]]>\n            </remotetype>\n        </job>\n        <job>\n            <title>\n                <![CDATA[Software Developer]]>\n            </title>\n            <date>\n                <![CDATA[Mon Jul 01 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </date>\n            <referencenumber>\n                <![CDATA[5]]>\n            </referencenumber>\n            <requisitionid>\n                <![CDATA[ABC233]]>\n            </requisitionid>\n            <url>\n                <![CDATA[https://www.tnb.com/career/operationanalyst]]>\n            </url>\n            <company>\n                <![CDATA[TNB]]>\n            </company>\n            <sourcename>\n                <![CDATA[Kuala Lumpur]]>\n            </sourcename>\n            <city>\n                <![CDATA[Pudu]]>\n            </city>\n            <state>\n                <![CDATA[Kuala Lumpur]]>\n            </state>\n            <country>\n                <![CDATA[Malaysia]]>\n            </country>\n            <postalcode>\n                <![CDATA[53200]]>\n            </postalcode>\n            <streetaddress>\n                <![CDATA[1, Jalan Pudu]]>\n            </streetaddress>\n            <email>\n                <![CDATA[hr@tnb.com]]>\n            </email>\n            <description>\n                <![CDATA[Develop TNB App]]>\n            </description>\n            <salary>\n                <![CDATA[4000 - 5000]]>\n            </salary>\n            <education>\n                <![CDATA[Bachelors]]>\n            </education>\n            <jobtype>\n                <![CDATA[full-time]]>\n            </jobtype>\n            <category>\n                <![CDATA[null]]>\n            </category>\n            <experience>\n                <![CDATA[1 - 2 years]]>\n            </experience>\n            <expirationdate>\n                <![CDATA[Tue Jul 30 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </expirationdate>\n            <remotetype>\n                <![CDATA[null]]>\n            </remotetype>\n        </job>\n        <job>\n            <title>\n                <![CDATA[Marketing Executive]]>\n            </title>\n            <date>\n                <![CDATA[Tue Jul 16 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </date>\n            <referencenumber>\n                <![CDATA[6]]>\n            </referencenumber>\n            <requisitionid>\n                <![CDATA[ABCD1343]]>\n            </requisitionid>\n            <url>\n                <![CDATA[https://www.simdarby.com/career/marketingexecutive]]>\n            </url>\n            <company>\n                <![CDATA[Sime Darby]]>\n            </company>\n            <sourcename>\n                <![CDATA[Selangor]]>\n            </sourcename>\n            <city>\n                <![CDATA[Ara Damansara]]>\n            </city>\n            <state>\n                <![CDATA[Kuala Lumpur]]>\n            </state>\n            <country>\n                <![CDATA[Malaysia]]>\n            </country>\n            <postalcode>\n                <![CDATA[53200]]>\n            </postalcode>\n            <streetaddress>\n                <![CDATA[1-2, Jalan 123]]>\n            </streetaddress>\n            <email>\n                <![CDATA[hr@simedarby.com]]>\n            </email>\n            <description>\n                <![CDATA[Assist in Sime Darby Property Marketing]]>\n            </description>\n            <salary>\n                <![CDATA[4K - 8K]]>\n            </salary>\n            <education>\n                <![CDATA[Bachelors]]>\n            </education>\n            <jobtype>\n                <![CDATA[full-time]]>\n            </jobtype>\n            <category>\n                <![CDATA[null]]>\n            </category>\n            <experience>\n                <![CDATA[1 - 3 years]]>\n            </experience>\n            <expirationdate>\n                <![CDATA[Thu Aug 15 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </expirationdate>\n            <remotetype>\n                <![CDATA[hybrid]]>\n            </remotetype>\n        </job>\n        <job>\n            <title>\n                <![CDATA[Marketing Executive]]>\n            </title>\n            <date>\n                <![CDATA[Tue Jul 16 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </date>\n            <referencenumber>\n                <![CDATA[7]]>\n            </referencenumber>\n            <requisitionid>\n                <![CDATA[ABCD1343]]>\n            </requisitionid>\n            <url>\n                <![CDATA[https://www.simdarby.com/career/marketingexecutive]]>\n            </url>\n            <company>\n                <![CDATA[Sime Darby]]>\n            </company>\n            <sourcename>\n                <![CDATA[Selangor]]>\n            </sourcename>\n            <city>\n                <![CDATA[Ara Damansara]]>\n            </city>\n            <state>\n                <![CDATA[Kuala Lumpur]]>\n            </state>\n            <country>\n                <![CDATA[Malaysia]]>\n            </country>\n            <postalcode>\n                <![CDATA[53200]]>\n            </postalcode>\n            <streetaddress>\n                <![CDATA[1-2, Jalan 123]]>\n            </streetaddress>\n            <email>\n                <![CDATA[hr@simedarby.com]]>\n            </email>\n            <description>\n                <![CDATA[Assist in Sime Darby Property Marketing]]>\n            </description>\n            <salary>\n                <![CDATA[4K - 8K]]>\n            </salary>\n            <education>\n                <![CDATA[Bachelors]]>\n            </education>\n            <jobtype>\n                <![CDATA[full-time]]>\n            </jobtype>\n            <category>\n                <![CDATA[null]]>\n            </category>\n            <experience>\n                <![CDATA[1 - 3 years]]>\n            </experience>\n            <expirationdate>\n                <![CDATA[Thu Aug 15 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </expirationdate>\n            <remotetype>\n                <![CDATA[hybrid]]>\n            </remotetype>\n        </job>\n        <job>\n            <title>\n                <![CDATA[Marketing Executive]]>\n            </title>\n            <date>\n                <![CDATA[Tue Jul 16 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </date>\n            <referencenumber>\n                <![CDATA[8]]>\n            </referencenumber>\n            <requisitionid>\n                <![CDATA[ABCD1343]]>\n            </requisitionid>\n            <url>\n                <![CDATA[https://www.simdarby.com/career/marketingexecutive]]>\n            </url>\n            <company>\n                <![CDATA[Sime Darby]]>\n            </company>\n            <sourcename>\n                <![CDATA[Selangor]]>\n            </sourcename>\n            <city>\n                <![CDATA[Ara Damansara]]>\n            </city>\n            <state>\n                <![CDATA[Kuala Lumpur]]>\n            </state>\n            <country>\n                <![CDATA[Malaysia]]>\n            </country>\n            <postalcode>\n                <![CDATA[53200]]>\n            </postalcode>\n            <streetaddress>\n                <![CDATA[1-2, Jalan 123]]>\n            </streetaddress>\n            <email>\n                <![CDATA[hr@simedarby.com]]>\n            </email>\n            <description>\n                <![CDATA[Assist in Sime Darby Property Marketing]]>\n            </description>\n            <salary>\n                <![CDATA[4K - 8K]]>\n            </salary>\n            <education>\n                <![CDATA[Bachelors]]>\n            </education>\n            <jobtype>\n                <![CDATA[full-time]]>\n            </jobtype>\n            <category>\n                <![CDATA[null]]>\n            </category>\n            <experience>\n                <![CDATA[1 - 3 years]]>\n            </experience>\n            <expirationdate>\n                <![CDATA[Thu Aug 15 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </expirationdate>\n            <remotetype>\n                <![CDATA[hybrid]]>\n            </remotetype>\n        </job>\n        <job>\n            <title>\n                <![CDATA[Marketing Executive]]>\n            </title>\n            <date>\n                <![CDATA[Tue Jul 16 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </date>\n            <referencenumber>\n                <![CDATA[9]]>\n            </referencenumber>\n            <requisitionid>\n                <![CDATA[ABCD1343]]>\n            </requisitionid>\n            <url>\n                <![CDATA[https://www.simdarby.com/career/marketingexecutive]]>\n            </url>\n            <company>\n                <![CDATA[Sime Darby]]>\n            </company>\n            <sourcename>\n                <![CDATA[Selangor]]>\n            </sourcename>\n            <city>\n                <![CDATA[Ara Damansara]]>\n            </city>\n            <state>\n                <![CDATA[Kuala Lumpur]]>\n            </state>\n            <country>\n                <![CDATA[Malaysia]]>\n            </country>\n            <postalcode>\n                <![CDATA[53200]]>\n            </postalcode>\n            <streetaddress>\n                <![CDATA[1-2, Jalan 123]]>\n            </streetaddress>\n            <email>\n                <![CDATA[hr@simedarby.com]]>\n            </email>\n            <description>\n                <![CDATA[Assist in Sime Darby Property Marketing]]>\n            </description>\n            <salary>\n                <![CDATA[4K - 8K]]>\n            </salary>\n            <education>\n                <![CDATA[Bachelors]]>\n            </education>\n            <jobtype>\n                <![CDATA[full-time]]>\n            </jobtype>\n            <category>\n                <![CDATA[null]]>\n            </category>\n            <experience>\n                <![CDATA[1 - 3 years]]>\n            </experience>\n            <expirationdate>\n                <![CDATA[Thu Aug 15 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </expirationdate>\n            <remotetype>\n                <![CDATA[hybrid]]>\n            </remotetype>\n        </job>\n        <job>\n            <title>\n                <![CDATA[Marketing Executive]]>\n            </title>\n            <date>\n                <![CDATA[Tue Jul 16 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </date>\n            <referencenumber>\n                <![CDATA[10]]>\n            </referencenumber>\n            <requisitionid>\n                <![CDATA[ABCD1343]]>\n            </requisitionid>\n            <url>\n                <![CDATA[https://www.simdarby.com/career/marketingexecutive]]>\n            </url>\n            <company>\n                <![CDATA[Sime Darby]]>\n            </company>\n            <sourcename>\n                <![CDATA[Selangor]]>\n            </sourcename>\n            <city>\n                <![CDATA[Ara Damansara]]>\n            </city>\n            <state>\n                <![CDATA[Kuala Lumpur]]>\n            </state>\n            <country>\n                <![CDATA[Malaysia]]>\n            </country>\n            <postalcode>\n                <![CDATA[53200]]>\n            </postalcode>\n            <streetaddress>\n                <![CDATA[1-2, Jalan 123]]>\n            </streetaddress>\n            <email>\n                <![CDATA[hr@simedarby.com]]>\n            </email>\n            <description>\n                <![CDATA[Assist in Sime Darby Property Marketing]]>\n            </description>\n            <salary>\n                <![CDATA[4K - 8K]]>\n            </salary>\n            <education>\n                <![CDATA[Bachelors]]>\n            </education>\n            <jobtype>\n                <![CDATA[full-time]]>\n            </jobtype>\n            <category>\n                <![CDATA[null]]>\n            </category>\n            <experience>\n                <![CDATA[1 - 3 years]]>\n            </experience>\n            <expirationdate>\n                <![CDATA[Thu Aug 15 2024 00:00:00 GMT+0800 (Malaysia Time)]]>\n            </expirationdate>\n            <remotetype>\n                <![CDATA[hybrid]]>\n            </remotetype>\n        </job>\n    </jobs>\n</source>"
+				}
+			]
+		},
+		{
+			"name": "Jobs Posting",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"CompanyRegistrationNo\": \"SDB1234\",\r\n    \"RequisitionID\": \"ABCD1343\",\r\n    \"Title\": \"Marketing Executive\",\r\n    \"Description\": \"Assist in Sime Darby Property Marketing\",\r\n    \"City\": \"Ara Damansara\",\r\n    \"State\": \"Kuala Lumpur\",\r\n    \"Country\": \"Malaysia\",\r\n    \"PostalCode\": 53200,\r\n    \"StreetAddress\": \"1-2, Jalan 123\",\r\n    \"Salary\": \"4K - 8K\",\r\n    \"Education\": \"Bachelors\",\r\n    \"JobType\": \"full-time\",\r\n    \"Experience\": \"1 - 3 years\",\r\n    \"RemoteType\": \"hybrid\",\r\n    \"URL\": \"https://www.simdarby.com/career/marketingexecutive\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/jobs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Jobs Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CompanyRegistrationNo\": \"SDB1234\",\r\n    \"RequisitionID\": \"ABCD1343\",\r\n    \"Title\": \"Marketing Executive\",\r\n    \"Description\": \"Assist in Sime Darby Property Marketing\",\r\n    \"City\": \"Ara Damansara\",\r\n    \"State\": \"Kuala Lumpur\",\r\n    \"Country\": \"Malaysia\",\r\n    \"PostalCode\": 53200,\r\n    \"StreetAddress\": \"1-2, Jalan 123\",\r\n    \"Salary\": \"4K - 8K\",\r\n    \"Education\": \"Bachelors\",\r\n    \"JobType\": \"full-time\",\r\n    \"Experience\": \"1 - 3 years\",\r\n    \"RemoteType\": \"hybrid\",\r\n    \"URL\": \"https://www.simdarby.com/career/marketingexecutive\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/jobs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "152"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"98-guLbZ/EJPfecLe36yJsEx3Fsl1M\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 16 Jul 2024 04:00:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"message\": \"Marketing Executive has been created\",\n        \"expiryDate\": \"2024-08-14T16:00:00.000Z\"\n    },\n    \"meta\": {\n        \"code\": 201,\n        \"name\": \"Created\"\n    },\n    \"errors\": null\n}"
+				}
+			]
+		},
+		{
+			"name": "Jobs Application",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n    \"CompanyRegistrationNo\": \"SDB1234\",\r\n    \"RequisitionID\": \"ABCD1343\",\r\n    \"Title\": \"Marketing Executive\",\r\n    \"Description\": \"Assist in Sime Darby Property Marketing\",\r\n    \"City\": \"Ara Damansara\",\r\n    \"State\": \"Kuala Lumpur\",\r\n    \"Country\": \"Malaysia\",\r\n    \"PostalCode\": 53200,\r\n    \"StreetAddress\": \"1-2, Jalan 123\",\r\n    \"Salary\": \"4K - 8K\",\r\n    \"Education\": \"Bachelors\",\r\n    \"JobType\": \"full-time\",\r\n    \"Experience\": \"1 - 3 years\",\r\n    \"RemoteType\": \"hybrid\",\r\n    \"URL\": \"https://www.simdarby.com/career/marketingexecutive\"\r\n}",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "http://localhost:5000/jobs",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "5000",
+					"path": [
+						"jobs"
+					]
+				}
+			},
+			"response": [
+				{
+					"name": "Jobs Copy",
+					"originalRequest": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"CompanyRegistrationNo\": \"SDB1234\",\r\n    \"RequisitionID\": \"ABCD1343\",\r\n    \"Title\": \"Marketing Executive\",\r\n    \"Description\": \"Assist in Sime Darby Property Marketing\",\r\n    \"City\": \"Ara Damansara\",\r\n    \"State\": \"Kuala Lumpur\",\r\n    \"Country\": \"Malaysia\",\r\n    \"PostalCode\": 53200,\r\n    \"StreetAddress\": \"1-2, Jalan 123\",\r\n    \"Salary\": \"4K - 8K\",\r\n    \"Education\": \"Bachelors\",\r\n    \"JobType\": \"full-time\",\r\n    \"Experience\": \"1 - 3 years\",\r\n    \"RemoteType\": \"hybrid\",\r\n    \"URL\": \"https://www.simdarby.com/career/marketingexecutive\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:5000/jobs",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "5000",
+							"path": [
+								"jobs"
+							]
+						}
+					},
+					"status": "Created",
+					"code": 201,
+					"_postman_previewlanguage": "json",
+					"header": [
+						{
+							"key": "X-Powered-By",
+							"value": "Express"
+						},
+						{
+							"key": "Access-Control-Allow-Origin",
+							"value": "*"
+						},
+						{
+							"key": "Content-Type",
+							"value": "application/json; charset=utf-8"
+						},
+						{
+							"key": "Content-Length",
+							"value": "152"
+						},
+						{
+							"key": "ETag",
+							"value": "W/\"98-guLbZ/EJPfecLe36yJsEx3Fsl1M\""
+						},
+						{
+							"key": "Date",
+							"value": "Tue, 16 Jul 2024 04:00:10 GMT"
+						},
+						{
+							"key": "Connection",
+							"value": "keep-alive"
+						},
+						{
+							"key": "Keep-Alive",
+							"value": "timeout=5"
+						}
+					],
+					"cookie": [],
+					"body": "{\n    \"result\": {\n        \"message\": \"Marketing Executive has been created\",\n        \"expiryDate\": \"2024-08-14T16:00:00.000Z\"\n    },\n    \"meta\": {\n        \"code\": 201,\n        \"name\": \"Created\"\n    },\n    \"errors\": null\n}"
+				}
+			]
+		}
+	]
+}

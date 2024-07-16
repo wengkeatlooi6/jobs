@@ -77,3 +77,6 @@ You may use the test runner of choice, hint: Vitest is easy to setup.
 
 #### Documentation (Swagger)
 http://localhost:5000/api-docs/ (Local Host!)
+
+# Part 4: Testing
+Unit Testing (during Development): Postman (Jobs.postman_collection.json)
