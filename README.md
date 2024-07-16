@@ -68,3 +68,5 @@ You may use the test runner of choice, hint: Vitest is easy to setup.
 
 
 # Proposed Solution
+## Part 1: Jobs Database Design
+![alt text](https://github.com/wengkeatlooi6/jobs/blob/main/ERD.png?raw=true)
