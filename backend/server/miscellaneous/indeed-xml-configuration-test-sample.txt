@@ -1,0 +1,50 @@
+Sample from Indeed (https://integration.apply.indeed.com/xml-configuration-test):
+Request Body:
+{
+  "id": "b05c30b6e89ef153602adaa9f073674128b4b838806bfdaf0cace3277f6b99df",
+  "job": {
+    "jobId": "GSyqdlvVu",
+    "jobKey": "ef6a185864da5b5d",
+    "jobTitle": "Professional Basket Weaver (apply by email)",
+    "jobCompany": "My Favorite Company",
+    "jobLocation": "Austin TX",
+    "jobUrl": "https://www.indeed.com"
+  },
+  "applicant": {
+    "fullName": "Weng Keat Looi",
+    "firstName": "Weng Keat",
+    "lastName": "Looi",
+    "email": "wengkeatlooi6@gmail.com",
+    "phoneNumber": "+60 11 3741 1760",
+    "resume": "here",
+    "verified": true
+  },
+  "analytics": {
+    "ip": "124.82.90.222",
+    "userAgent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/126.0.0.0 Safari/537.36",
+    "sponsored": false,
+    "trackingUid": "1i2oki28ak3t8801",
+    "device": "desktop"
+  },
+  "appliedOnMillis": 1720961285349,
+  "locale": "en_MY"
+}
+
+Request Header:
+{
+  host: 'c108-124-82-90-222.ngrok-free.app',
+  'user-agent': 'IndeedApply/4793b20e6a57465e41592459f6d34425f99f5817 (+http://www.indeed.com/hire/indeed-apply)',
+  'content-length': '84791',
+  'accept-encoding': 'gzip,deflate',
+  'content-type': 'application/json; charset=UTF-8',
+  traceparent: '00-6693cf880000000044f3c3db8989adef-2c39ce582415f81d-00',
+  tracestate: 'dd=s:-1;t.tid:6693cf8800000000',
+  'x-datadog-parent-id': '3186805089299200029',
+  'x-datadog-sampling-priority': '-1',
+  'x-datadog-tags': '_dd.p.tid=6693cf8800000000',
+  'x-datadog-trace-id': '4968530161592544751',
+  'x-forwarded-for': '3.128.63.195',
+  'x-forwarded-host': 'c108-124-82-90-222.ngrok-free.app',
+  'x-forwarded-proto': 'https',
+  'x-indeed-signature': 'JNCciaKO731dUCAsCbPqw+OgUEA='
+}
