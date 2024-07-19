@@ -1,24 +1,145 @@
 /**
- * @swagger
- * /jobs:
- *   get:
- *     summary: Returns a list of users
- *     description: Get all users from the database
- *     responses:
- *       200:
- *         description: A list of users
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: integer
- *                   username:
- *                     type: string
- */
+* @swagger
+* /jobs:
+*   get:
+*     tags:
+*       - Jobs
+*     operationId: ''
+*     parameters:
+*       - in: query
+*         name: page
+*         example: '1'
+*         schema:
+*           type: string
+*         required: false
+*         description: Page Number
+*       - in: query
+*         name: pageSize
+*         example: '10'
+*         schema:
+*           type: string
+*         required: false
+*         description: Page Size
+*     responses:
+*         '200':
+*           description: Success
+*           content:
+*             application/json:
+*               schema:
+*                 type: object
+*                 properties:
+*                   result:
+*                     type: object
+*                     description: result
+*                     example:
+*                       - JobID: 1
+*                         CompanyRegistrationNo: TNB1234
+*                         RequisitionID: ABC1
+*                         Title: Business Analyst
+*                         Description: Understanding business processes, identifying needs, and recommending solutions that enable the organization to achieve its objectives more effectively
+*                         City: Pudu
+*                         State: Kuala Lumpur
+*                         Country: Malaysia
+*                         PostalCode: 53200
+*                         StreetAddress: 1, Jalan Pudu
+*                         Salary: 4000 - 5000
+*                         Education: Bachelors
+*                         JobType: full-time
+*                         Experience: 1 - 2 years
+*                         DatePosted: '2024-06-01'
+*                         ExpiryDate: '2024-06-30'
+*                         RemoteType: null
+*                         URL: https://www.tnb.com/career/businessanalyst
+*                   meta:
+*                     type: object
+*                     description: meta
+*                     example:
+*                       code: 200
+*                       name: Success
+*                       page: 1
+*                       pageSize: 10
+*                       totalItems: 20
+*                       totalPages: 11
+*                   errors:
+*                     type: object
+*                     description: errors
+*                     example: null
+*         '400':
+*           description: Bad Request
+*           content:
+*             application/json:
+*               schema:
+*                 type: object
+*                 properties:
+*                   result:
+*                     type: object
+*                     description: result
+*                     example: null
+*                   meta:
+*                     type: object
+*                     description: meta
+*                     example: null
+*                   errors:
+*                     type: object
+*                     description: errors
+*                     example:
+*                       code: 400
+*                       name: Bad Request
+*                       message: Invalid Page or Page Size.
+*                       details:
+*                         path: /jobs
+*                         timestamp: 2024-07-19T11:21:21+0000
+*         '404':
+*           description: No Application Found
+*           content:
+*             application/json:
+*               schema:
+*                 type: object
+*                 properties:
+*                   result:
+*                     type: object
+*                     description: result
+*                     example: null
+*                   meta:
+*                     type: object
+*                     description: meta
+*                     example: null
+*                   errors:
+*                     type: object
+*                     description: errors
+*                     example:
+*                       code: 404
+*                       name: Not Found
+*                       message: No Active Jobs.
+*                       details:
+*                         path: /jobs
+*                         timestamp: 2024-07-19T11:21:21+0000
+*         '500':
+*           description: Internal Server Error
+*           content:
+*             application/json:
+*               schema:
+*                 type: object
+*                 properties:
+*                   result:
+*                     type: object
+*                     description: result
+*                     example: null
+*                   meta:
+*                     type: object
+*                     description: meta
+*                     example: null
+*                   errors:
+*                     type: object
+*                     description: errors
+*                     example:
+*                       code: 500
+*                       name: Internal Server Error
+*                       message: There is an error on the downstream server, please retry again later.
+*                       details:
+*                         path: /jobs
+*                         timestamp: 2024-07-19T11:21:21+0000
+*/
 const express = require('express');
 const router = express.Router();
 const db = require("../db");
