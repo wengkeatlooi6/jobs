@@ -1,24 +1,123 @@
 /**
- * @swagger
- * /jobs/indeed-application:
- *   post:
- *     summary: Returns a list of users
- *     description: Get all users from the database
- *     responses:
- *       200:
- *         description: A list of users
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: integer
- *                   username:
- *                     type: string
- */
+* @swagger
+* /jobs/indeed-application:
+*   post:
+*     tags:
+*       - Jobs
+*     operationId: ''
+*     parameters: []
+*     requestBody:
+*       content:
+*         application/json:
+*           schema:
+*             type: object
+*             properties:
+*               id:
+*                 type: string
+*                 description: id
+*                 example: ABCDEFGHJIK
+*               job:
+*                 type: object
+*                 description: job
+*                 example:
+*                   jobUrl: https://www.tnb.com/career/businessanalyst
+*                   jobId: '1'
+*                   jobKey: ABC1
+*                   jobTitle: Business Analyst
+*                   jobCompany: TNB1234
+*                   jobLocation: 1, Jalan Pudu
+*               applicant:
+*                 type: object
+*                 description: applicant
+*                 example:
+*                   phoneNumber: '+60123203243'
+*                   resume: ABCDE
+*                   fullName: John Smith
+*                   firstName: John
+*                   lastName: Smith
+*                   email: john@gmail.com
+*               locale:
+*                 type: string
+*                 description: locale
+*                 example: en-MY
+*               appliedOnMillis:
+*                 type: number
+*                 description: appliedOnMillis
+*                 example: 1732943045
+*     responses:
+*       '201':
+*         description: Job Created
+*         content:
+*           application/json:
+*             schema:
+*               type: object
+*               properties:
+*                 result:
+*                   type: object
+*                   description: result
+*                   example:
+*                     message: ABCDEFGHJIK has been created
+*                 meta:
+*                   type: object
+*                   description: meta
+*                   example:
+*                     code: 201
+*                     name: Created
+*                 errors:
+*                   type: object
+*                   description: errors
+*                   example: null
+*       '400':
+*         description: Missing Mandatory Fields
+*         content:
+*           application/json:
+*             schema:
+*               type: object
+*               properties:
+*                 result:
+*                   type: object
+*                   description: result
+*                   example: null
+*                 meta:
+*                   type: object
+*                   description: meta
+*                   example: null
+*                 errors:
+*                   type: object
+*                   description: errors
+*                   example:
+*                     code: 400
+*                     name: Bad Request
+*                     message: Missing Mandatory Fields.
+*                     details:
+*                       path: /jobs/indeed-application
+*                       timestamp: 2024-07-19T11:21:21+0000
+*       '500':
+*         description: Internal Server Error
+*         content:
+*           application/json:
+*             schema:
+*               type: object
+*               properties:
+*                 result:
+*                   type: object
+*                   description: result
+*                   example: null
+*                 meta:
+*                   type: object
+*                   description: meta
+*                   example: null
+*                 errors:
+*                   type: object
+*                   description: errors
+*                   example:
+*                     code: 500
+*                     name: Internal Server Error
+*                     message: There is an error on the downstream server, please retry again later.
+*                     details:
+*                       path: /jobs/indeed-application
+*                       timestamp: 2024-07-19T11:21:21+0000
+*/
 const express = require('express');
 const router = express.Router();
 const db = require("../db");
