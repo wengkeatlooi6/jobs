@@ -1,24 +1,135 @@
 /**
- * @swagger
- * /jobs:
- *   post:
- *     summary: Returns a list of users
- *     description: Get all users from the database
- *     responses:
- *       200:
- *         description: A list of users
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: integer
- *                   username:
- *                     type: string
- */
+* @swagger
+* /jobs:
+*   post:
+*     tags:
+*       - Jobs
+*     operationId: ''
+*     parameters: []
+*     requestBody:
+*       content:
+*         application/json:
+*           schema:
+*             type: object
+*             properties:
+*               CompanyRegistrationNo:
+*                 type: string
+*                 description: CompanyRegistrationNo
+*                 example: TNB1234
+*               RequisitionID:
+*                 type: string
+*                 description: RequisitionID
+*                 example: ABC4
+*               Title:
+*                 type: string
+*                 description: Title
+*                 example: Test Analyst
+*               Description:
+*                 type: string
+*                 description: Description
+*                 example: Ensures the functional readiness of computer software and hardware products.
+*               City:
+*                 type: string
+*                 description: City
+*                 example: Pudu
+*               State:
+*                 type: string
+*                 description: State
+*                 example: Kuala Lumpur
+*               Country:
+*                 type: string
+*                 description: Country
+*                 example: Malaysa
+*               PostalCode:
+*                 type: number
+*                 description: PostalCode
+*                 example: 53200
+*               StreetAddress:
+*                 type: string
+*                 description: StreetAddress
+*                 example: 1, Jalan Pudu
+*               Salary:
+*                 type: string
+*                 description: Salary
+*                 example: 3000 - 5000
+*               Education:
+*                 type: string
+*                 description: Education
+*                 example: Bachelors
+*               JobType:
+*                 type: string
+*                 description: JobType
+*                 example: full-time
+*               Experience:
+*                 type: string
+*                 description: Experience
+*                 example: 1 - 2 years
+*               RemoteType:
+*                 type: object
+*                 description: RemoteType
+*                 example: null
+*               URL:
+*                 type: string
+*                 description: URL
+*                 example: https://www.tnb.com/career/testanalyst
+*     responses:
+*       '201':
+*         description: Job Created
+*         content:
+*           application/json:
+*             schema:
+*               type: object
+*       '400':
+*         description: Missing Mandatory Fields
+*         content:
+*           application/json:
+*             schema:
+*               type: object
+*               properties:
+*                 result:
+*                   type: object
+*                   description: result
+*                   example: null
+*                 meta:
+*                   type: object
+*                   description: meta
+*                   example: null
+*                 errors:
+*                   type: object
+*                   description: errors
+*                   example:
+*                     code: 400
+*                     name: Bad Request
+*                     message: Missing Mandatory Fields.
+*                     details:
+*                       path: /jobs
+*                       timestamp: 2024-07-19T11:21:21+0000
+*       '500':
+*         description: Internal Server Error
+*         content:
+*           application/json:
+*             schema:
+*               type: object
+*               properties:
+*                 result:
+*                   type: object
+*                   description: result
+*                   example: null
+*                 meta:
+*                   type: object
+*                   description: meta
+*                   example: null
+*                 errors:
+*                   type: object
+*                   description: errors
+*                   example:
+*                     code: 500
+*                     name: Internal Server Error
+*                     message: There is an error on the downstream server, please retry again later.
+*                     details:
+*                       path: /jobs
+*                       timestamp: 2024-07-19T11:21:21+0000
+*/
 const express = require('express');
 const router = express.Router();
 const db = require("../db");
