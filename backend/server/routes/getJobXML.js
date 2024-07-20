@@ -1,24 +1,172 @@
 /**
- * @swagger
- * /jobs/indeed.xml:
- *   get:
- *     summary: Returns a list of users
- *     description: Get all users from the database
- *     responses:
- *       200:
- *         description: A list of users
- *         content:
- *           application/json:
- *             schema:
- *               type: array
- *               items:
- *                 type: object
- *                 properties:
- *                   id:
- *                     type: integer
- *                   username:
- *                     type: string
- */
+* @swagger
+* /jobs/indeed.xml:
+*   get:
+*     tags:
+*       - Jobs
+*     operationId: ''
+*     parameters: []
+*     responses:
+*       '200':
+*         description: Success
+*         content:
+*           application/xml:
+*             schema:
+*               type: object
+*               xml:
+*                 name: source
+*               properties:
+*                 publisher:
+*                   type: string
+*                   description: publisher
+*                   example: My System
+*                 publisherurl:
+*                   type: string
+*                   description: publisherurl
+*                   example: http://www.mysystem.com
+*                 jobs:
+*                   type: object
+*                   description: jobs
+*                   properties:
+*                     job:
+*                       type: object
+*                       description: job
+*                       properties:
+*                         title:
+*                           type: string
+*                           description: title
+*                           example: Business Analyst
+*                         date:
+*                           type: string
+*                           description: date
+*                           example: '2024-06-01'
+*                         referencenumber:
+*                           type: string
+*                           description: referencenumber
+*                           example: '1'
+*                         requisitionid:
+*                           type: string
+*                           description: requisitionid
+*                           example: ABC1
+*                         url:
+*                           type: string
+*                           description: url
+*                           example: https://www.tnb.com/career/businessanalyst
+*                         company:
+*                           type: string
+*                           description: company
+*                           example: TNB
+*                         sourcename:
+*                           type: string
+*                           description: sourcename
+*                           example: Tenaga Nasional Berhad
+*                         city:
+*                           type: string
+*                           description: city
+*                           example: Pudu
+*                         state:
+*                           type: string
+*                           description: state
+*                           example: Kuala Lumpur
+*                         country:
+*                           type: string
+*                           description: country
+*                           example: Malaysia
+*                         postalcode:
+*                           type: string
+*                           description: postalcode
+*                           example: '53200'
+*                         streetaddress:
+*                           type: string
+*                           description: streetaddress
+*                           example: 1, Jalan Pudu
+*                         email:
+*                           type: string
+*                           description: email
+*                           example: hr@tnb.com
+*                         description:
+*                           type: string
+*                           description: description
+*                           example: Understanding business processes, identifying needs, and recommending solutions that enable the organization to achieve its objectives more effectively
+*                         salary:
+*                           type: string
+*                           description: salary
+*                           example: 4000 - 5000
+*                         education:
+*                           type: string
+*                           description: education
+*                           example: Bachelors
+*                         jobtype:
+*                           type: string
+*                           description: jobtype
+*                           example: full-time
+*                         category:
+*                           type: string
+*                           description: category
+*                           example: '[Electricity, Service]'
+*                         experience:
+*                           type: string
+*                           description: experience
+*                           example: 1 - 2 years
+*                         expirationdate:
+*                           type: string
+*                           description: expirationdate
+*                           example: '2024-06-30'
+*                         remotetype:
+*                           type: string
+*                           description: remotetype
+*                           example: 'null'
+*       '404':
+*         description: No Application Found
+*         content:
+*           application/json:
+*             schema:
+*               type: object
+*               properties:
+*                 result:
+*                   type: object
+*                   description: result
+*                   example: null
+*                 meta:
+*                   type: object
+*                   description: meta
+*                   example: null
+*                 errors:
+*                   type: object
+*                   description: errors
+*                   example:
+*                     code: 404
+*                     name: Not Found
+*                     message: No Active Jobs.
+*                     details:
+*                       path: /jobs/indeed.xml
+*                       timestamp: 2024-07-19T11:21:21+0000
+*       '500':
+*         description: Internal Server Error
+*         content:
+*           application/json:
+*             schema:
+*               type: object
+*               properties:
+*                 result:
+*                   type: object
+*                   description: result
+*                   example: null
+*                 meta:
+*                   type: object
+*                   description: meta
+*                   example: null
+*                 errors:
+*                   type: object
+*                   description: errors
+*                   example:
+*                     code: 500
+*                     name: Internal Server Error
+*                     message: There is an error on the downstream server, please retry again later.
+*                     details:
+*                       path: /jobs/indeed.xml
+*                       timestamp: 2024-07-19T11:21:21+0000
+*/
 const express = require('express');
 const router = express.Router();
 const db = require("../db");
